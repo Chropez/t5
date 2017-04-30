@@ -1,0 +1,13 @@
+<h2 class="page-title">Round Scores</h2>
+
+{{#paper-card as |card|}}
+  {{#card.content}}
+    {{#each round.matches as |match|}}
+      <div>
+        {{match.player1.nickname}} {{match.player1Score}} -
+        {{match.player2Score}} {{match.player2.nickname}}
+      </div>
+    {{/each}}
+  {{/card.content}}
+{{/paper-card}}
+

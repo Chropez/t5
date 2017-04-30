@@ -6,5 +6,7 @@ export default Model.extend({
   player1: belongsTo('player'),
   player2: belongsTo('player'),
   player1Score: attr('number'),
-  player2Score: attr('number')
+  player2Score: attr('number'),
+
+  round: belongsTo()
 });
