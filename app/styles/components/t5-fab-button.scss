@@ -1,0 +1,17 @@
+.t5-fab-button {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+
+  md-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 30px;
+    font-size: 30px;
+  }
+}
+
+.content-with-fab-button {
+  padding-bottom: 70px;
+}

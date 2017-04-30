@@ -1,0 +1,14 @@
+{
+  "rules": {
+    ".read": true,
+    ".write": true,
+
+    "players": {
+      ".indexOn": "tournament"
+    },
+
+    "rounds": {
+      ".indexOn": "tournament"
+    }
+  }
+}

@@ -1,0 +1,19 @@
+$primary: 'teal';
+$accent: "pink";
+
+$link: "light-blue";
+
+$light-contrast-color: white;
+$color-teal: map-merge($color-teal, ('contrast':  $light-contrast-color));
+$color-teal: map-merge($color-teal, ('500':  color($primary, '800')));
+$dark: true;
+
+$base-background-color: color($color-grey, '100');
+$base-color: #504f4f;
+$default-color: '100';
+
+$primary-font-color: darken(color($primary, '800'), 3);
+
+.primary-color {
+  color: $primary-font-color;
+}

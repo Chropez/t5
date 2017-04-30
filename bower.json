@@ -1,5 +1,6 @@
 {
   "name": "t5",
   "dependencies": {
+    "firebase": "^3.0.0"
   }
 }

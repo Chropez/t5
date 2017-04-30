@@ -1,0 +1,18 @@
+{{#paper-toolbar class="md-whiteframe-5dp" as |toolbar|}}
+  {{#toolbar.tools}}
+    {{#if onBack}}
+      <div class="flex">
+        {{#paper-button iconButton=true onClick=onBack}}
+          {{paper-icon "keyboard backspace" }}
+        {{/paper-button}}
+      </div>
+    {{else}}
+      <div class="flex"></div>
+    {{/if}}
+
+    <h2>{{title}}</h2>
+    <div class="flex"></div>
+    {{yield}}
+  {{/toolbar.tools}}
+{{/paper-toolbar}}
+

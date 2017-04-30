@@ -1,0 +1,10 @@
+{{t5-toolbar onBack=(route-action "cancel") title="Players"}}
+
+{{#t5-content}}
+  {{player-edit
+    name=model.name
+    nickname=model.nickname
+    imageUrl=model.imageUrl
+    onCancel=(route-action "cancel")
+    onSave=(route-action "save")}}
+{{/t5-content}}

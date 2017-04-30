@@ -1,0 +1,23 @@
+{{t5-toolbar onBack=(route-action "onBack") title="Players"}}
+
+{{#t5-content classNames="content-with-fab-button"}}
+  {{#each model as |player|}}
+    {{#paper-card as |card|}}
+      {{#if player.imageUrl}}
+        {{card.image src=player.imageUrl alt=player.name title=player.name}}
+      {{/if}}
+      {{#card.title as |title|}}
+        {{#title.text as |text|}}
+          {{#text.headline}}{{player.nickname}}{{/text.headline}}
+          {{#text.subhead}}{{player.name}}{{/text.subhead}}
+        {{/title.text}}
+      {{/card.title}}
+      {{#card.actions}}
+        {{#paper-button onClick=(route-action 'editPlayer' player)}}Edit{{/paper-button}}
+        {{#paper-button onClick=(route-action 'removePlayer' player)}}Remove{{/paper-button}}
+      {{/card.actions}}
+    {{/paper-card}}
+  {{/each}}
+{{/t5-content}}
+
+{{t5-fab-button icon="add"  accent=true onClick=(route-action "addPlayer")}}

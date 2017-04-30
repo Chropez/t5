@@ -1,0 +1,14 @@
+{{#link-to "players" classNames="page-title"}}Players{{/link-to}}
+
+<div class="layout-row layout-wrap">
+  {{#each players as |player|}}
+    <div class="flex-50 flex-gt-sm-25">
+      {{tournament-player-card
+        imageUrl=player.imageUrl
+        name=player.name
+        nickname=player.nickname
+        onClick=(action "goToPlayer" player)}}
+    </div>
+  {{/each}}
+</div>
+

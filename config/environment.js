@@ -17,6 +17,30 @@ module.exports = function(environment) {
       }
     },
 
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline'",
+      'style-src': "'self' 'unsafe-eval' 'unsafe-inline' https://fonts.googleapis.com apis.google.com",
+      'font-src': "'self' fonts.gstatic.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://*.googleapis.com",
+      'img-src': "'self' data:",
+      'media-src': "'self'",
+      'frame-src': "'self' https://*.firebaseapp.com"
+    },
+
+    moment: {
+      includeLocales: ['se']
+    },
+
+    firebase: {
+      apiKey: "AIzaSyBgmKsCasCgLsPsuUJBMJ2526862tyCtC8",
+      authDomain: "ttttt-3ae44.firebaseapp.com",
+      databaseURL: "https://ttttt-3ae44.firebaseio.com",
+      projectId: "ttttt-3ae44",
+      storageBucket: "ttttt-3ae44.appspot.com",
+      messagingSenderId: "129219114814"
+    },
+
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created

@@ -1,0 +1,27 @@
+{{#paper-card as |card|}}
+  {{#card.content}}
+    {{#paper-form onSubmit=(route-action "save") as |form|}}
+      <div class="layout-row">
+        <div class="layout-column flex-gt-md-50 flex-sm-100 flex-xs-100">
+          {{form.input label="Name" value=name onChange=(action (mut name)) required=true}}
+          {{form.input label="Nickname" value=nickname onChange=(action (mut nickname))}}
+          {{form.input label="Image Url" value=imageUrl onChange=(action (mut imageUrl))}}
+        </div>
+      </div>
+
+      {{#if imageUrl}}
+        <div class="layout-column" style="max-width: 100%;">
+          <div class="page-title">Image preview</div>
+          <img src="{{imageUrl}}" style="max-width: 100%">
+        </div>
+      {{/if}}
+
+      <div class="layout-row">
+        {{#paper-button onClick=onCancel}}Cancel{{/paper-button}}
+        {{#paper-button raised=true primary=true onClick=(action "save")}}Save{{/paper-button}}
+      </div>
+    {{/paper-form}}
+
+
+  {{/card.content}}
+{{/paper-card}}
