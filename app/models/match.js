@@ -1,6 +1,7 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
+import computed from 'ember-computed';
 
 export default Model.extend({
   player1: belongsTo('player'),
@@ -8,5 +9,23 @@ export default Model.extend({
   player1Score: attr('number'),
   player2Score: attr('number'),
 
-  round: belongsTo()
+  tournament: belongsTo(),
+
+  round: belongsTo(),
+
+  winner: computed('player1Score', 'player2Score', 'player1.id', 'player2.id', function() {
+    let { player1Score, player2Score, player1, player2 } =
+      this.getProperties('player1Score', 'player2Score', 'player1.id', 'player2.id');
+
+    if (player1Score > player2Score) {
+      return player1;
+    }
+
+    return player2;
+  }),
+
+  isWinner(player) {
+    let winner = this.get('winner');
+    return player.id === winner.id;
+  }
 });

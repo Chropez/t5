@@ -1,8 +1,12 @@
 import Controller from 'ember-controller';
 import moment from 'moment';
+import { sort } from 'ember-computed';
 
 export default Controller.extend({
   showDialog: false,
+
+  rounds: sort('model.rounds', 'roundsByDate'),
+  roundsByDate: ['date:desc'],
 
   actions: {
     newRound() {

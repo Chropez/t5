@@ -9,6 +9,10 @@
 
     "rounds": {
       ".indexOn": "tournament"
+    },
+
+    "matches": {
+      ".indexOn": "tournament"
     }
   }
 }

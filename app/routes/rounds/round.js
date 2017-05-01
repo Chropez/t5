@@ -26,7 +26,8 @@ export default Ember.Route.extend({
         player1,
         player2,
         player1Score: score1,
-        player2Score: score2
+        player2Score: score2,
+        tournament: round.get('tournament')
       });
 
       round.get('matches').pushObject(match);

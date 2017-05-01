@@ -15,6 +15,14 @@ export default Route.extend({
       this.store.query('round', {
         orderBy: 'tournament',
         equalTo: 'ttttt'
+      }),
+      this.store.query('match', {
+        orderBy: 'tournament',
+        equalTo: 'ttttt'
+      }),
+      this.store.query('player', {
+        orderBy: 'tournament',
+        equalTo: 'ttttt'
       })
     ]);
   },

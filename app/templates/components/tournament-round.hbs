@@ -1,10 +1,10 @@
 {{#paper-card as |card|}}
   {{#card.title as |title|}}
-    {{title.media size="md" src=round.winner.imageUrl alt=round.winner.nickname title=round.winner.nickname}}
+    {{title.media size="md" src=winner.imageUrl alt=winner.nickname title=winner.nickname}}
     {{#title.text as |text|}}
       {{#text.headline}}{{round.date}}{{/text.headline}}
       {{#text.subhead}}
-        Winner: {{round.winner.nickname}}
+        Winner: {{winner.nickname}}
       {{/text.subhead}}
     {{/title.text}}
   {{/card.title}}
