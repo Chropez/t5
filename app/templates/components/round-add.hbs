@@ -2,55 +2,58 @@
 
 {{#paper-card as |card|}}
   {{#card.content}}
-    <div class="layout-row layout-wrap">
-      <div class="flex-gt-sm-10 flex-15 player-image">
-        <img style="max-width: 100%" src="{{player1.imageUrl}}" alt="">
-      </div>
-      <div class="flex-gt-sm-40 flex-50 player-chooser">
-        {{#power-select
-            options=players
-            selected=player1
-            searchEnabled=false
-            placeholder="Player 1"
-            onchange=(action (mut player1)) as |player|}}
-            {{player.nickname}}
-        {{/power-select}}
-      </div>
-      <div class="flex-gt-sm-40 flex-35 player-score">
-        {{paper-input
-          type="number"
-          label="Score"
-          value=score1
-          onChange=(action (mut score1))
-          min="0"
-        }}
+    <form {{action "addMatch" on="submit"}}>
+      <div class="layout-row layout-wrap">
+        <div class="flex-gt-sm-10 flex-15 player-image">
+          <img style="max-width: 100%" src="{{player1.imageUrl}}" alt="">
+        </div>
+          <div class="flex-gt-sm-40 flex-50 player-chooser">
+            {{#paper-select
+              label="Player 1"
+              options=players
+              selected=player1
+              onChange=(action (mut player1))
+              as |player|}}
+              {{player.nickname}}
+            {{/paper-select}}
+          </div>
+          <div class="flex-gt-sm-40 flex-35 player-score">
+            {{paper-input
+              type="number"
+              label="Score"
+              value=score1
+              onChange=(action (mut score1))
+              min="0"
+            }}
+          </div>
+
+          <div class="flex-gt-sm-10 flex-15 player-image">
+            <img  style="max-width: 100%" src="{{player2.imageUrl}}" alt="">
+          </div>
+          <div class="flex-gt-sm-40 flex-50 player-chooser">
+
+            {{#paper-select
+              label="Player 2"
+              options=players
+              selected=player2
+              onChange=(action (mut player2))
+              as |player|}}
+              {{player.nickname}}
+            {{/paper-select}}
+          </div>
+          <div class="flex-gt-sm-40 flex-35 player-score">
+            {{paper-input
+              type="number"
+              label="Score"
+              value=score2
+              onChange=(action (mut score2))
+              min="0"
+            }}
+          </div>
       </div>
 
-      <div class="flex-gt-sm-10 flex-15 player-image">
-        <img  style="max-width: 100%" src="{{player2.imageUrl}}" alt="">
-      </div>
-      <div class="flex-gt-sm-40 flex-50 player-chooser">
-        {{#power-select
-            options=players
-            selected=player2
-            placeholder="Player 2"
-            searchEnabled=false
-            onchange=(action (mut player2)) as |player|}}
-            {{player.nickname}}
-        {{/power-select}}
-      </div>
-      <div class="flex-gt-sm-40 flex-35 player-score">
-        {{paper-input
-          type="number"
-          label="Score"
-          value=score2
-          onChange=(action (mut score2))
-          min="0"
-        }}
-      </div>
-    </div>
-
-    {{#paper-button primary=true raised=true onClick=(action "addMatch")}}Add{{/paper-button}}
+      {{#paper-button type="submit" primary=true raised=true onClick=(action "addMatch")}}Add{{/paper-button}}
+    </form>
   {{/card.content}}
 {{/paper-card}}
 

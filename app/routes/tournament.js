@@ -30,6 +30,9 @@ export default Route.extend({
   actions: {
     onBack() {
       this.transitionTo('index');
+    },
+    goToPlayers() {
+      this.transitionTo('players');
     }
   }
 });

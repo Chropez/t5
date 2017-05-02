@@ -8,6 +8,10 @@ const {
 const tournamentName = 'ttttt';
 
 export default Route.extend({
+  beforeModel() {
+    this.transitionTo('tournament');
+  },
+
   model() {
     return this.store.findRecord('tournament', tournamentName).then((tournament) => {
       return resolve(tournament);

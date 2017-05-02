@@ -11,8 +11,11 @@
     {{/if}}
 
     <h2>{{title}}</h2>
-    <div class="flex"></div>
-    {{yield}}
+    {{#if hasBlock}}
+      {{yield}}
+    {{else}}
+      <div class="flex"></div>
+    {{/if}}
   {{/toolbar.tools}}
 {{/paper-toolbar}}
 

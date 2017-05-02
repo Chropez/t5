@@ -1,10 +1,10 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-  classNames: 'round-add',
+  classNames: 'round-scores',
   actions: {
-    addMatch(arg1) {
-      debugger;
+    remove(match) {
+debugger;
     }
   }
 });

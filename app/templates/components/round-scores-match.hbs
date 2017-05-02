@@ -1,0 +1,30 @@
+<div class="layout-row layout-align-center-center flex">
+  <div class="flex-15">
+    <img src={{match.player1.imageUrl}} alt={{match.player1.nickname}} class="md-avatar">
+  </div>
+
+  <div class="flex-25 player-name player1-name {{if player1IsWinner "strong"}}">
+    {{match.player1.nickname}}
+  </div>
+  <div class="flex-5 {{if player1IsWinner "strong"}}">
+    {{match.player1Score}}
+  </div>
+  <div class="flex">
+    -
+  </div>
+
+  <div class="flex-5 player2-score {{if player2IsWinner "strong"}}">
+    {{match.player2Score}}
+  </div>
+  <div class="flex-25 player-name player2-name {{if player2IsWinner "strong"}}">
+    {{match.player2.nickname}}
+  </div>
+  <div class="flex-15">
+    <img src={{match.player2.imageUrl}} alt={{match.player2.nickname}} class="md-avatar avatar-right">
+  </div>
+  <div class="flex-10 delete-button">
+    {{#paper-button iconButton=true secondary=true onClick=(action "removeMatch")}}
+      {{paper-icon "delete" size=16}}
+    {{/paper-button}}
+  </div>
+</div>

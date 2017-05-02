@@ -6,4 +6,40 @@
     padding: 14px 20px;
   }
 
+  md-list-item .md-no-style {
+    padding: 0;
+  }
+
+  .player2-score, .player2-name {
+    text-align: right;
+  }
+
+  md-list-item {
+    padding: 0 10px;
+  }
+
+  md-list-item .md-list-item-inner .md-avatar.avatar-right {
+    margin-right: 0;
+    margin-left: 16px;
+  }
+
+  md-card-content {
+    padding: 0;
+  }
+
+  .player-name {
+    white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+    padding: 0 4px;
+  }
+
+  .delete-button .md-button.md-secondary.md-icon-button{
+    position: absolute;
+    right: -12px;
+  }
+
+  .strong {
+    font-weight: bold;
+  }
 }

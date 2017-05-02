@@ -15,17 +15,12 @@ export default Model.extend({
 
   winner: computed('player1Score', 'player2Score', 'player1.id', 'player2.id', function() {
     let { player1Score, player2Score, player1, player2 } =
-      this.getProperties('player1Score', 'player2Score', 'player1.id', 'player2.id');
+      this.getProperties('player1Score', 'player2Score', 'player1', 'player2');
 
     if (player1Score > player2Score) {
       return player1;
     }
 
     return player2;
-  }),
-
-  isWinner(player) {
-    let winner = this.get('winner');
-    return player.id === winner.id;
-  }
+  })
 });

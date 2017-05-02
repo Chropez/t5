@@ -3,12 +3,12 @@
   "version": "0.0.0",
   "description": "Small description for t5 goes here",
   "license": "MIT",
-  "author": "",
+  "author": "Christopher Lopez <chlo1259@gmail.com>",
   "directories": {
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "",
+  "repository": "https://github.com/Chropez/t5.git",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
@@ -38,7 +38,6 @@
     "ember-load-initializers": "^0.6.0",
     "ember-moment": "^7.3.0",
     "ember-paper": "^1.0.0-alpha.19",
-    "ember-power-select": "^1.8.2",
     "ember-resolver": "^2.0.3",
     "ember-route-action-helper": "^2.0.2",
     "ember-source": "~2.12.0",
@@ -48,5 +47,6 @@
   "engines": {
     "node": ">= 4"
   },
-  "private": true
+  "private": true,
+  "main": "index.js"
 }

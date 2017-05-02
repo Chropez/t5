@@ -1,4 +1,20 @@
-{{t5-toolbar onBack=(route-action "onBack") title="Tournament - ttttt"}}
+{{#t5-toolbar onBack=(route-action "onBack") title="Tournament - ttttt"}}
+  <div class="flex layout-row layout-align-end-center">
+    {{#paper-menu as |menu|}}
+      {{#menu.trigger}}
+        {{#paper-button iconButton=true}}
+          {{paper-icon "more_vert"}}
+        {{/paper-button}}
+      {{/menu.trigger}}
+      {{#menu.content width=4 as |content|}}
+          {{#content.menu-item onClick=(route-action "goToPlayers")}}
+            {{paper-icon item.icon}}
+            <span>Show players</span>
+          {{/content.menu-item}}
+      {{/menu.content}}
+    {{/paper-menu}}
+  </div>
+{{/t5-toolbar}}
 
 {{#t5-content classNames="content-with-fab-button"}}
   {{tournament-rounds rounds=rounds}}

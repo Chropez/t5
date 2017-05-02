@@ -2,12 +2,13 @@
 
 {{#paper-card as |card|}}
   {{#card.content}}
-    {{#each round.matches as |match|}}
-      <div>
-        {{match.player1.nickname}} {{match.player1Score}} -
-        {{match.player2Score}} {{match.player2.nickname}}
-      </div>
-    {{/each}}
+    {{#paper-list}}
+      {{#each round.matches as |match|}}
+        {{#paper-item}}
+          {{round-scores-match match=match}}
+        {{/paper-item}}
+      {{/each}}
+    {{/paper-list}}
   {{/card.content}}
 {{/paper-card}}
 
