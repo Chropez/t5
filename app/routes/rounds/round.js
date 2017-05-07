@@ -11,15 +11,11 @@ export default Ember.Route.extend({
       players: this.store.query('player', {
         orderBy: 'tournament',
         equalTo: 'ttttt'
+      }),
+      matches: this.store.query('match', {
+        orderBy: 'round',
+        equalTo: round_id
       })
-    });
-  },
-
-  afterModel(model) {
-    let roundId = model.round.get('id');
-    return this.store.query('match', {
-      orderBy: 'round',
-      equalTo: roundId
     });
   },
 

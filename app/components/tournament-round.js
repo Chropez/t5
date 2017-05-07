@@ -2,7 +2,7 @@ import Component from 'ember-component';
 import service from 'ember-service/inject';
 import { isEmpty } from 'ember-utils';
 
-import computed, { alias, sort } from 'ember-computed';
+import computed, { alias } from 'ember-computed';
 
 export default Component.extend({
   router: service('-routing'),
@@ -17,12 +17,11 @@ export default Component.extend({
       }
 
       let table = this.get('scoreTable').getTable(matches)
-      //return table;
       return table.get('competitorsSorted.firstObject.player');
   }),
 
   click() {
     let round = this.get('round');
-    this.get('router').transitionTo('rounds.round', [ round.id ]);
+    this.get('router').transitionTo('rounds.round', [ round.get('id') ]);
   }
 });

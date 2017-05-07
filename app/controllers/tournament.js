@@ -32,7 +32,7 @@ export default Controller.extend({
       round.save().then(() => {
         tournament.save().then(() => {
           this.set('showDialog', false);
-          this.transitionToRoute('rounds.round', round);
+          this.transitionToRoute('rounds.round', round.get('id'));
         });
       });
     }

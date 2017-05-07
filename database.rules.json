@@ -12,7 +12,7 @@
     },
 
     "matches": {
-      ".indexOn": "tournament"
+      ".indexOn": ["round","tournament"]
     }
   }
 }
