@@ -77,3 +77,27 @@ md-input-container {
 }
 
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+
+  thead th {
+    background-color: $primary-font-color;
+    color: white;
+
+    &:first-child {
+      text-align: left;
+    }
+  }
+
+  th, td {
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  td:first-child {
+    text-align: left;
+  }
+}
+
+

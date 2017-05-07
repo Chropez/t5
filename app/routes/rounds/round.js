@@ -15,6 +15,14 @@ export default Ember.Route.extend({
     });
   },
 
+  afterModel(model) {
+    let roundId = model.round.get('id');
+    return this.store.query('match', {
+      orderBy: 'round',
+      equalTo: roundId
+    });
+  },
+
   actions: {
     onBack() {
       this.transitionTo('tournament');

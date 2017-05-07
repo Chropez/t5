@@ -1,10 +1,21 @@
 {{#paper-card as |card|}}
   {{#card.title as |title|}}
-    {{title.media size="md" src=winner.imageUrl alt=winner.nickname title=winner.nickname}}
+    {{#if winner}}
+      {{title.media size="md" src=winner.imageUrl alt=winner.nickname title=winner.nickname}}
+    {{else}}
+      {{title.media size="md"}}
+    {{/if}}
     {{#title.text as |text|}}
-      {{#text.headline}}{{round.date}}{{/text.headline}}
+      {{#text.headline}}
+        {{moment-format round.date 'dddd' 'YYYY-MM-DD'}}
+      {{/text.headline}}
       {{#text.subhead}}
-        Winner: {{winner.nickname}}
+        {{round.date}} <br>
+        {{#if winner}}
+          {{winner.nickname}} wins!
+        {{else}}
+          <em>No matches played this round</em>
+        {{/if}}
       {{/text.subhead}}
     {{/title.text}}
   {{/card.title}}

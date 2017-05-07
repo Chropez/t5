@@ -2,14 +2,14 @@ import Object from 'ember-object';
 import { A } from 'ember-array/utils';
 import computed, { collect, sum, sort } from 'ember-computed';
 
-let Competitor = Object.extend({
-  id: "",
-  name: "",
+const Competitor = Object.extend({
+  id: '',
+  name: '',
   wins: 0,
   losses: 0,
-  ties: 0,
+  draws: 0,
 
-  playedCollection: collect('wins', 'losses', 'ties'),
+  playedCollection: collect('wins', 'losses', 'draws'),
   played: sum('playedCollection'),
 
   scored: 0,
@@ -25,9 +25,10 @@ let Competitor = Object.extend({
     this.incrementProperty('conceeded', conceeded);
 
     if (scored === conceeded) {
-      this.incrementProperty('ties');
+      this.incrementProperty('draws');
       return;
     }
+
     if (scored > conceeded) {
       this.incrementProperty('wins');
       return;
@@ -38,22 +39,30 @@ let Competitor = Object.extend({
 
 });
 
-export default Object.extend({
-  competitors: A(),
+const Table = Object.extend({
+  //competitors: A(),
   competitorsSortedBy: ['wins:desc'],
   competitorsSorted: sort('competitors', 'competitorsSortedBy'),
 
   addMatch(competitor1, competitor1Score, competitor2, competitor2Score) {
-    competitor1 = this._addOrGetCompetitor(competitor1);
-    competitor2 = this._addOrGetCompetitor(competitor2);
+    competitor1 = this.addOrGetCompetitor(competitor1);
+    competitor2 = this.addOrGetCompetitor(competitor2);
 
     competitor1.addMatch(competitor1Score, competitor2Score);
     competitor2.addMatch(competitor2Score, competitor1Score);
   },
 
-  _addOrGetCompetitor(competitor) {
+  addOrGetCompetitor(competitor) {
     let competitors = this.get('competitors')
-    let tableCompetitor = competitors.findBy('id', competitor.get('id'));
+
+    let tableCompetitor;
+
+    if (competitors) {
+      tableCompetitor = competitors.findBy('id', competitor.get('id'));
+    } else {
+      competitors = A(),
+      this.set('competitors', competitors);
+    }
 
     if (tableCompetitor) {
       return tableCompetitor;
@@ -65,4 +74,6 @@ export default Object.extend({
 });
 
 export { Competitor };
+export default Table;
+
 

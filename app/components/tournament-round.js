@@ -1,7 +1,8 @@
 import Component from 'ember-component';
 import service from 'ember-service/inject';
+import { isEmpty } from 'ember-utils';
 
-import computed, { alias } from 'ember-computed';
+import computed, { alias, sort } from 'ember-computed';
 
 export default Component.extend({
   router: service('-routing'),
@@ -9,16 +10,16 @@ export default Component.extend({
 
   matches: alias('round.matches'),
 
-  winner: computed('matches.@each.player1Score',
-    'matches.@each.player2Score',
-    function() {
+  winner: computed('matches.@each.winner', function() {
       let matches = this.get('matches');
+      if (isEmpty(matches)) {
+        return ;
+      }
+
       let table = this.get('scoreTable').getTable(matches)
+      //return table;
       return table.get('competitorsSorted.firstObject.player');
   }),
-
-
-  // winner: alias('table.competitorsSorted.firstObject.player'),
 
   click() {
     let round = this.get('round');

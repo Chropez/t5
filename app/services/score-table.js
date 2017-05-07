@@ -3,12 +3,21 @@ import { isEmpty } from 'ember-utils';
 import ScoreTable, { Competitor } from '../utils/score-table';
 
 export default Service.extend({
-  getTable(matches) {
-    if (isEmpty(matches)) {
-      return [];
-    }
+  getTable(matches, players) {
 
     let table = ScoreTable.create();
+
+    if (!isEmpty(players)) {
+      players.forEach(player => {
+        let competitor = this._createCompetitorFromPlayer(player);
+        table.addOrGetCompetitor(competitor);
+      });
+
+    }
+
+    if (isEmpty(matches)) {
+      return table;
+    }
 
     matches.forEach((match) => {
       let { player1, player2, player1Score, player2Score } =

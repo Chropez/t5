@@ -1,3 +1,29 @@
 <h2 class="page-title">Round Table</h2>
 
-<hr>
+{{#paper-card as |card|}}
+  {{#card.content}}
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>P</th>
+          <th>W</th>
+          <th>D</th>
+          <th>L</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each competitors as |competitor|}}
+          <tr>
+            <td>{{competitor.name}}</td>
+            <td>{{competitor.played}}</td>
+            <td>{{competitor.wins}}</td>
+            <td>{{competitor.draws}}</td>
+            <td>{{competitor.losses}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+  {{/card.content}}
+{{/paper-card}}

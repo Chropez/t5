@@ -2,6 +2,6 @@
 
 {{#t5-content classNames="content-with-fab-button"}}
   {{round-add round=model.round players=model.players onAdd=(route-action "addMatch")}}
+  {{round-table round=model.round players=model.players}}
   {{round-scores round=model.round players=model.players}}
-  {{round-table round=model.round}}
 {{/t5-content}}

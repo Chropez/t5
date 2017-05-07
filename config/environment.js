@@ -28,9 +28,9 @@ module.exports = function(environment) {
       'frame-src': "'self' https://*.firebaseapp.com"
     },
 
-    moment: {
-      includeLocales: ['se']
-    },
+    // moment: {
+    //   includeLocales: ['se']
+    // },
 
     firebase: {
       apiKey: "AIzaSyBgmKsCasCgLsPsuUJBMJ2526862tyCtC8",

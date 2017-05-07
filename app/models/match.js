@@ -1,7 +1,7 @@
 import Model from 'ember-data/model';
 import attr from 'ember-data/attr';
 import { belongsTo } from 'ember-data/relationships';
-import computed from 'ember-computed';
+import computed, { alias } from 'ember-computed';
 
 export default Model.extend({
   player1: belongsTo('player'),
@@ -22,5 +22,7 @@ export default Model.extend({
     }
 
     return player2;
-  })
+  }),
+
+  winnerId: alias('winner.id')
 });
